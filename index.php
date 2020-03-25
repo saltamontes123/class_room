@@ -11,6 +11,7 @@
     <meta name="description" content="Empresas de innovación digital y desarrollo tecnológico">
     <meta property="og:image" content="http://startup-bolivia.net/msd-innova/img/favicon.png">
     <title>IEBT</title>
+<!--    <link rel="stylesheet" href="css/estilo.css">   -->
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/materialize.css">
@@ -20,7 +21,7 @@
     <link rel="icon" type="image/gif" href="img/favico.jpg"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection" />
-   <!-- aumenté estos scrpts para los combos de país y región -->
+    <!-- aumenté estos scrpts para los combos de país y región -->
     <script language="javascript" src="js/jquery-3.1.1.min.js"></script>
     <script language="javascript">
 			$(document).ready(function(){
@@ -83,46 +84,36 @@
       }
     </script>
    <!-- hasta aqui el script para guardar con ajax-->
-  </head>
+ </head>
   <body>
-    <header>
-      <div class="navegador1">
-        <nav>
-          <div class="nav-wrapper"style="background-color:#ffffff; border-bottom: 5px solid #66CCCC;">
-            <div class="">
-              <a href="#" class="brand-logo"><img src="img/00lmsd001.png" class="resposive-img" width=300 height=55></a>
-              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons blue-text text-darken-4">menu</i></a>
-              <ul class="right hide-on-med-and-down">
-              </ul>
-              <ul class="side-nav" id="mobile-demo" style="background-color: #66CCCC">
-              <li><a class="waves-effect waves-light" style="color:#ffffff;" href="#inicio">Inicio</a></li>
-              <li><a class="waves-effect waves-light" style="color:#ffffff;" href="#mision">¿Quiénes somos?</a></li>
-              <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#cursos">Cursos activos</a></li>
-              <li><a class="waves-effect waves-light" style="color:#ffffff;" id="inscribir" href="#miInscripcion">Ingresa</a></li>
-              <li><a class="waves-effect waves-light" style="color:#ffffff;" href="#contactos">Contactos</a></li>
-            </ul>
+    <div class="row contenedor deep-purple darken-4">
+          <div class="col l6 offset-l5 navegador">  <!--navegador1  -->
+    <!--        <nav>
+              <div class="nav-wrapper"style="background-color:#ffffff; border-bottom: 5px solid #66CCCC;">
+                <div class="">
+                  <a href="#" class="brand-logo"><img src="img/00lmsd001.png" class="resposive-img" width=300 height=55></a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons blue-text text-darken-4">menu</i></a>
+                  <ul class="right hide-on-med-and-down">
+                  </ul>  -->
+                  <ul> <!-- class="side-nav" id="mobile-demo" style="background-color: #66CCCC">   -->
+                  <li><a class="white-text" href="#mision">¿Quiénes somos?</a></li>  <!-- class="waves-effect waves-light" style="color:#ffffff;"-->
+                  <li><a class="white-text" href="#cursos">Nuestra oferta</a></li>  <!--class="waves-effect waves-light" style="color:#66CCCC" -->
+                  <li><a class="white-text" href="#miInscripcion">Consultas</a></li>  <!--class="waves-effect waves-light" style="color:#ffffff;" id="inscribir"  -->
+                  <li><a class="white-text modal-trigger" href="#login">Ingresa</a></li>  <!--class="waves-effect waves-light" style="color:#ffffff;" id="inscribir"  -->
+                  <li><a class="purple accent-2 white-text borde_boton" href="#contactos">Aplica</a></li>   <!--class="waves-effect waves-light" style="color:#ffffff;"   -->
+                </ul>
+    <!--          </div>
+            </div>
+          </nav>  -->
           </div>
-        </div>
-       </nav>
-      </div>
-      <div class="navegador">
-        <nav class="nav-wrapper" style="background-color:#ffffff;border-bottom: 5px solid #66CCCC;">
-        <a href="#" class="brand-logo"><img src="img/00lmsd001.png" class="resposive-img" width=300 height=55></a>
-            <ul class="right hide-on-med-and-down" id="menu-principal">
-              <li class="inicio1" onclick=""><a class="waves-effect waves-light" style="color:#66CCCC" href="#inicio">Inicio</a></li>
-              <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#mision">¿Quiénes somos?</a></li>
-              <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#cursos">Cursos activos</a></li>
-              <li><a class="waves-effect waves-light" style="color:#ffffff; background-color:#66CCCC" id="ingresar" href="#miInscripcion">Registrate</a></li>
-              <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="login.php">Ingresar</a></li>
-              <li class="contactos1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#contactos">Contactos</a></li>
-            </ul>
-          </nav>
-      </div>
-    </header>
-    <div class="">
-        <div id="miInscripcion" class="inscribir_personal titulos flotante">
-          <h5>Registra tus datos: </h5>
-          <form id="formulario" action="php/agregarusuario.php" method="post">
+          <div class="row">
+            <div class="col l5 white-text titulos">
+              <h1> Desata todo el potencial de tu equipo creativo</h1>
+            </div>
+
+            <div id="miInscripcion" class="inscripcion titulos flotante">
+              <h6>Registra tus datos: </h6>
+              <form id="formulario" action="php/agregarusuario.php" method="post">
             <input class="mi_input" type="text" id="nombre" name="nombre" placeholder="Nombre">
             <input class="mi_input" type="text" id="apellido" name="apellido" placeholder="Apellido"> <br>
             <input class="mi_input" type="email" id="email" name="email" placeholder="E-mail"><br>
@@ -138,7 +129,7 @@
             </select>
             <div><select name="region" id="region" class="browser-default" style="background-color:#fff; border-color:#ccc"></select></div>
             
-            
+            <br>
             <label for="">Programa de interés *</label>
             <select name="programa" class="browser-default" style="background-color:#fff; border-color:#ccc placehoder='programa">
                 <option>-- Seleccionar --</option>
@@ -153,52 +144,53 @@
               <!-- <a href="#" class="guardar boton" name="guardar" id="guardar"><i class="material-icons">save</i> Comienza ahora</a> -->
             </div>
           </form>
-        </div>
-        <div class="contenedor">
-          <div id="frase">
-
-          </div>
-        </div>
-        <div class="contenedor1">
-        </div>
-        <div class="contenedor2">
+        
+            </div>
         </div>
     </div>
-  <br>
-  <br>
-  <div class="row"  id="mision" style="background:#66CCCC">
-  <div class="col l12 m6 s12">
-      <h5 style="color:white">¿Quiénes somos?</h5>
+
+  <!--    <div class="navegador">
+        <nav class="nav-wrapper" style="background-color:#ffffff;border-bottom: 5px solid #66CCCC;">
+        <a href="#" class="brand-logo"><img src="img/00lmsd001.png" class="resposive-img" width=300 height=55></a>
+            <ul class="right hide-on-med-and-down" id="menu-principal">
+              <li class="inicio1" onclick=""><a class="waves-effect waves-light" style="color:#66CCCC" href="#inicio">Inicio</a></li>
+              <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#mision">¿Quiénes somos?</a></li>
+              <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#cursos">Cursos activos</a></li>
+              <li><a class="waves-effect waves-light" style="color:#ffffff; background-color:#66CCCC" id="inscribir" href="#miInscripcion">Registrate</a></li>
+              <li class="contactos1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#contactos">Contactos</a></li>
+            </ul>
+          </nav>
+      </div>
+-->
+  <div class="row" id="">
+  <div class="col l8 titulos">
+    <h3>Moderne ayuda a los equipos creativos a ahorrar horas o incluso días en investigación y colaborar hasta 3 veces más rápido</h3>
   </div>
-</div>
-<div>       <!--   inicia ubicación -->
-  <div class="col s-12" style="padding:20px 20px 20px 20px;">
-        <table style="font-size:16px; color: grey; padding: 25px 25px 25px 25px;">
-          <tr>
-            <p style="width:100%;font-size:16px; color:grey; padding: 25px 25px 25px 25px; text-align:justify" >
-              <span> La empresas</span>
-              <span style="color:#66cccc;font-size:18px;">M</span>
-              <span style="color:#ff9933;font-size:18px;">S</span>
-              <span style="color:#00cc99;font-size:18px;">D</span>
-              <span style="color:#006699;font-size:18px"> Innova</span>
-              <span> se constituye en un componente importante del ecosistema de emprendimiento e innovación de Bolivia, como agente que promueve la tranformación digital de la sociedad, las empresas e instituciones, a través de promover la tranferencia de conocimiento, el desarrollo de productos tecnológicos y desarrollo web.
-              <br> <br>Con más de 3 años de trabajo, la empresa tiene una cartera de clientes regionales, nacionales e internacionales.
-              </span>
-            </p>
-          </tr>
-          <tr>
-            <td class="center" style="width:150px;">MISIÓN</td>
-            <td style="width:400px;">Aportar con la transformación digital de profesionales, instituciones públicas y/o privadas, para lograr su mayor competitividad y productividad.</td>
-          </tr>
-          <tr>
-            <td class="center" style="width:150px;">VISIÓN</td>
-            <td style="width:400px;">Ser referente a nivel Latinoamérica en desarrollo de productos y servicios web a través de nuestro modelo de gestión de la innovación tecnológica, trabajando con competitividad, calidad y conectividad.</td>
-          </tr>
-          <tr>
-            <td class="center"  style="width:150px;">VOCACIÓN</td>
-            <td style="width:400px;">MSD Innova tiene como vocación el fomento de la innovación, la calidad y la gestión del conocimento, con compromiso y transparencia.</td>
-          </tr>
-        </table>
+  <div class="col s12 m6 l12 titulos">
+    <div class="col l4 ideas">
+      <img src="img/ideas002.jpg" class="img_ideas" alt="">
+      <p>
+        <strong>Entregue mejores ideas creativas</strong>
+        <br>
+        Utilice toneladas de información sobre el consumidor y del mercado, ideas creativas y tendencias listas para usar, altamente adaptadas a sus necesidades.
+      </p>
+    </div>
+    <div class="col l4 ideas">
+      <img src="img/ideas001.png" class="img_ideas" alt="">
+      <p>
+        <strong>Ejecute lluvia de ideas creativas más suaves</strong>
+        <br>
+        Obtenga un espacio para que su equipo creativo comparta ideas e ideas, organice foros y debates
+      </p>
+    </div>
+    <div class="col l4 ideas">
+      <img src="img/ideas003.jpg" class="img_ideas" alt="">
+      <p>
+        <strong>Presenta tus ideas de forma preparada</strong>
+        <br>
+        Crea proyectos con información relevante, modelo de negocios ágil y una red internacional de trabajo
+      </p>
+    </div>
   </div>
 </div>
 <br>
@@ -294,5 +286,27 @@
     <script src="js/modal.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>$(".button-collapse").sideNav();</script>
-</body>
+    <script type="text/javascript" src="js/class.js"></script>
+
+    <div id="login" class="modal" style="text-align: center">
+      <modal-content>
+      <h5>Ingresar</h5>
+      <form id="autenticacion" action="php/validar.php" method="post">
+      <input id='usuario' name="usuario" type="text" class="text" placeholder="e-mail" style="width:50%">
+      <input id='clave' name="clave" type="password" class="text" placeholder="contraseña" style="width:50%">
+      <br>
+      <modal-footer ><input type="submit" class="modal-close"id="btnlogin" name="btnlogin" value="Aceptar"></modal-footer> 
+      <br>
+      </form>
+      </modal-content>
+      </div>
+    <script>
+      $(document).ready(function(){
+        $('.modal').modal()
+      });
+    </script>
+
+
+
+  </body>
 </html>

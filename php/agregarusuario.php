@@ -14,7 +14,7 @@ $query=$con->query($consulta);
 
 if($query->num_rows>0){
 echo "Usuario con email ".$email." ya existe.";
-return;
+
 //header("Location:../index.html");
 }
 else {
@@ -23,7 +23,7 @@ else {
     $rres=$con->query($inserta);
   //  header("Location:../index.php");
     echo "Registro guardado satisfactoriamente.";
-return;
+
 }
 mysqli_free_result($query);
 mysqli_close($con);

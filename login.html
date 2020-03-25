@@ -4,46 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+             
+    </head>
+<body class="red lighten-3">
 <div class="container center">
   <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
 </div>
 
-<div id="login" class="modal ">
-  <h5 class="modal-close">&#10005;</h5>
-  <div class="modal-content center">
+<div id="login" class="modal">
+  <div class ="modal-content">
     <h4>Login Form</h4>
-    <br>
-
-    <form action="#">
-
-      <div class="input-field">
-        <i class="material-icons prefix">person</i>
-        <input type="text" id="name">
-        <label for="name">Username</label>
-      </div>
-      <br>
-
-      <div class="input-field">
-        <i class="material-icons prefix">lock</i>
-        <input type="password" id="pass">
-        <label for="pass">Password</label>
-      </div>
-      <br>
-
-      <div class="left" style="margin-left:20px;">
-        <input type="checkbox" id="check">
-        <label for="check">Remember Me</label>
-      </div>
-      <br>
-
-      <input type="submit" value="Login" class="btn btn-large">
-
-    </form>
+    <div class="modal-footer">
+      <a href="" class="btn modal-close">Cerrar</a>
+    </div>
   </div>
-</div>
+  </div>
+
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.modal').modal();
+  
+  });
+  </script>
 </body>
 </html>

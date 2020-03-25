@@ -1,11 +1,14 @@
-@import "@material/fab/mdc-fab";
-header {
-      width: 100%;
-      position: fixed;
-      z-index: 101;
+/*// Remy function
+@function remy($value) {
+  @return ($value / 16px) * 1rem;
 }
+
+/*@import "@material/fab/mdc-fab";*/
 .contenedor{
-  background-image: url("../img/slider0005.jpg");
+  height: 40em;
+
+/*
+  background: url("../img/slider0005.jpg");
   position: relative;
   background-repeat: no-repeat;
   background-attachment:fixed;
@@ -20,10 +23,10 @@ header {
   -moz-animation-delay: 1s;
   -o-animation-delay: 1s;
   animation-delay: 1s;
-  animation-timing-function:cubic-bezier();
+  animation-timing-function:cubic-bezier();*/
   z-index: -1;
 }
-@keyframes imagenes-animacion {
+/*@keyframes imagenes-animacion {
     0% {
       background-image:url("../img/slider0000.jpg");
       background-repeat:no-repeat;
@@ -78,13 +81,13 @@ header {
       justify-content: center;
       height: 38em;
     }
-  }
-  #frase{
+  }*/
+/*  #frase{
     display:flex;
     position:absolute;
     left: 10px;
     top: 50px;
-    animation-name: letras-animacion;
+/*    animation-name: letras-animacion;
     animation-duration: 10s;
     animation-iteration-count: infinite;
     -webkit-animation-delay: 1s;
@@ -93,8 +96,8 @@ header {
     animation-delay: 1s;
     animation-timing-function:linear;
     z-index: 1;
-  }
-  @keyframes letras-animacion {
+  }*/
+/*  @keyframes letras-animacion {
       0% {
         background-image: url("../img/leyenda001.png");
         background-repeat: no-repeat;
@@ -126,7 +129,7 @@ header {
         animation: 'rotatex';
       }
     }
-
+*/
 .contenedor1{
   display: none;
 }
@@ -134,26 +137,51 @@ header {
   display: none;
 }
 /*cierra menu */
-    .flotante{
-      display:block;
-      position: absolute;
-      right: 0px;
-      top: 50px;
-    }
-    .flotante1{
-      display: none;
-    }
-    .navegador{
-      display:block;
-      background-color:#4D5969;
-    }
-    .navegador1{
-      display: none;
-    }
+.flotante{
+  display:block;
+  position: absolute;
+  right: 0px;
+  top: 90px;
+  border-radius: 10px;
+  line-height: 3px;
+}
+.flotante1{
+  display: none;
+}
+.navegador{
+  display:block;
+  position: absolute;
+  top: 28px;
+}
+li {
+  float: left;
+  line-height: 3px;
+}
 
-    .dropdown-content{width: max-content !important;height:auto !important; }
+a {
+  display: block;
+  padding: 15px;
+  font-size: 16px;
+  background-color: #dddddd;
+}
+.borde_boton{
+  border-radius: 10px;
+}
+a:hover{
+  color: #fff;
+  opacity: 0.9;
+  border-radius: 12px;
+}
+
+.navegador1{
+  display: none;
+}
+
+
+/*
+.dropdown-content{width: max-content !important;height:auto !important; }
     /* fin menu */
-    .imagenesprod{
+/*    .imagenesprod{
       visibility:visible;
     }
     .registrarse {
@@ -163,32 +191,45 @@ header {
         top: 0;
         overflow: auto;
         width: 28%;
-        height: 30em;
+        height: 20em;
     /*    position: absolute;*/
-        background-color: white;
+/*        background-color: white;
         margin: 2em 0 0 2em;
         border: 1px solid #66CCCC;
     }
     /* inicio modal  */
-    .inscribir_personal {
+    .inscripcion {
       z-index: 2;
       overflow: auto;
       width: 28%;
-      height: 32em;
+      height: 28em;
       background-color: white;
       margin: 2em 2em 0em 0em;
       border: 1px solid #013F72;
     }
-
-    .titulos h5{
-       color: #013F72;
-       font-weight: bold;
-       font-size: 12px;
-       margin: 15px 15px 15px 15px;
+    .titulos{
+      color: #013F72;
     }
-    .titulos input::placeholder{
 
-       color: #013F72;
+    .titulos h1{
+       margin: 150px 15px 15px 55px;
+    }
+
+    .titulos h3{
+       padding:20px 20px 20px 20px;
+       margin: 50px 15px 15px 55px;
+    }
+
+    .titulos h6{
+       margin: 15px 15px 15px 15px;
+       line-height: 8px;
+    }
+    .titulos p{
+      padding:20px 20px 20px 20px;
+      margin: 15px 15px 15px 15px;
+    }
+
+    .titulos input::placeholder{
        font-size: 10px;
        font-style: normal;
     }
@@ -200,7 +241,7 @@ header {
     }
     input[type="text"], input[type="email"], select{
       width: 100%;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-family: fantasy;
       font-size: 10px;
       color: #013F72;
@@ -229,10 +270,21 @@ header {
         font-size: 12px;
         font-weight: bold;
     }
+
+
     .boton-check{
       background-color:#013F72;
       text-align: center;
     }
+  .ideas{
+      padding: 50px 50px 50px 50px;
+  }
+  .img_ideas{
+    width: 70px;
+  }
+
+
+
     @media screen and (max-width:900px) {
       header {
             width: 100%;
