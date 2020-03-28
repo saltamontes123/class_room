@@ -1,3 +1,21 @@
+<?php 
+require_once ($_SERVER['DOCUMENT_ROOT']."/class_room/php/conexion.php");
+$usuario='1141962';
+$materia=1;
+$detallecontenido=1;
+
+
+$temas="select distinct cu.codigocurso as curso,ma.sigla AS materia , te.idtema,te.titulo as tema
+from pla_curso as cu
+INNER JOIN pla_materia as ma on cu.codigocurso=ma.codigocurso
+INNER JOIN pla_tema as te on ma.idmateria=te.idmateria
+ORDER BY idtema ASC ";
+
+$restemas=$con->query($temas);
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +24,7 @@
     <meta name="description" content="Empresas de innovación digital y desarrollo tecnológico">
     <meta property="og:image" content="http://startup-bolivia.net/msd-innova/img/favicon.png">
     <title>Class</title>
+    <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/estilo_class.css">
     <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <link rel="stylesheet" href="css/style.css">
@@ -13,97 +32,125 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/gif" href="img/favico.jpg"/>
+        <!-- aumenté estos scrpts para actualizar el contenido con ajax -->
+        <script language="javascript" src="/js/jquery-3.1.1.min.js"></script>
+       <!-- para cargar el contenido   -->
+    <script>
+      function cargarcontenido(div,url)
+      {
+        //alert("Hola");
+        $(div).load(url);
+      }
+    </script>
+ 
+    <script language="javascript">
+			$(document).ready(function(){
+				$("#pais").change(function () {
+
+					$('#region').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+					
+					$("#pais option:selected").each(function () {
+						id_estado = $(this).val();
+						$.post("php/getRegion.php", { id_estado: id_estado }, function(data){
+							$("#region").html(data);
+						});            
+					});
+				})
+			});
+		</script>
+   <!-- hasta aquí para país y región-->
   </head>
 <header>
-  <div class="navegador">
-    <nav class="nav-wrapper" style="background-color:#ffffff;border-bottom: 5px solid #66CCCC;">
-    <a href="#" class="brand-logo"><img src="img/00lmsd001.png" class="resposive-img" width=300 height=55></a>
-        <ul class="right hide-on-med-and-down" id="menu-principal">
-          <li class="inicio1" onclick=""><a class="waves-effect waves-light" style="color:#66CCCC" href="#inicio">Inicio</a></li>
-          <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#mision">Perfil</a></li>
-          <li class="mision1"><a class="waves-effect waves-light" style="color:#66CCCC" href="#cursos">Usuario</a></li>
-        </ul>
-      </nav>
-  </div>
 </header>
   <body>
-    <div class="row">
-        <div class="col l3 ">
-          <h5>Desarrollo Web</h5>
-          <div class="scrollSpy">
-              <ul>
-                  <li>Lección 1. Fundamentos de programación
-                      <ul>
-                          <li><a href="/" title="Fundamentos teoricos">1.1. Fundamentos de programación</a></li>
-                          <li><a href="/" title="Principios de algoritmos">1.2. Principios de algoritmos</a></li>
-                          <li><a href="/" title="Analisis de sistemas">1.3.Análisis y diseño de sistemas</a></li>
-                          <li><a href="/" title="HTML">1.4.HTML5</a></li>
-                          <ul>
-                              <li><a href="/" title="Canvas"><i class="material-icons">assignment</i>Canvas</a></li>
-                              <li><a href="/" title="Korva"><i class="material-icons">assignment</i>Korva</a></li>
-                          </ul>
-                      </ul>
-                  </li>
-                  <li>Lección 2. CSS y Diseño web
-                      <ul>
-                          <li><a href="/" title="Introducción a CSS">2.1. Introducción a CSS</a></li>
-                          <li><a href="/" title="Propiedades CSS">2.2.Propiedades CSS</a></li>
-                          <li><a href="/" title="CSS adaptativo">2.3. CSS adaptativo</a></li>
-                          <li><a href="/" title="CSS3">2.4. CSS3</a></li>
-                          <li><a href="/" title="Transiciones">2.5.Transiciones</a></li>
-                          <ul>
-                              <li><a href="/" title="Canvas"><i class="material-icons">assignment</i>Canvas</a></li>
-                              <li><a href="/" title="Korva"><i class="material-icons">assignment</i>Korva</a></li>
-                          </ul>
-                          <li><a href="/" title="Animaciones">2.6. Animaciones</a></li>
-                          <ul>
-                              <li><a href="/" title="Canvas"><i class="material-icons">assignment</i>Canvas</a></li>
-                              <li><a href="/" title="Korva"><i class="material-icons">assignment</i>Korva</a></li>
-                          </ul>
-                      </ul>
-                  </li>
-                  <li>Lección 3. Github
-                      <ul>
-                          <li><a href="/" title="Control de versiones">3.1. Control de versiones</a></li>
-                          <li><a href="/vlogs" title="ECC's Vlogs">3.2. Estructura y uso local</a></li>
-                          <li><a href="/latest-victories" title="ECC's Latest Victories">3.3. Estructura y uso online</a></li>
-                      </ul>
-                  </li>
-                  <li>Lección 4. Github
-                      <ul>
-                          <li><a href="/" title="Control de versiones">3.1. Control de versiones</a></li>
-                          <li><a href="/vlogs" title="ECC's Vlogs">3.2. Estructura y uso local</a></li>
-                          <li><a href="/latest-victories" title="ECC's Latest Victories">3.3. Estructura y uso online</a></li>
-                      </ul>
-                  </li>
+    <div class="row deep-purple darken-4" style="margin-bottom: 0px;">
+      <div class="row">
+        <div class="col l8">
+          <img src="img/logo.jpg" alt="">
+
+        </div>
+        <div class="col l3">
+          <ul>
+            <li><a class="texto" href="#mision">Mis cursos</a></li>
+            <li><a class="texto" href="#cursos">Avances</a></li>
+            <li><a class="boton" href="#contactos">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+        <br>
+          <div class="row text-component">
+            <div class="col l3 scrollbar" id="style-4">
+             
+
+              <h5 class="texto3 white">Desarrollo web</h5>
+              <!-- desde aqui se va a rellenar el arbolde TEMAS y contenidos -->
+              <?php while($rowtema=mysqli_fetch_array($restemas)){
+                  $tema=$rowtema['tema'];
+                  $idtema=$rowtema['idtema'];
+                  
+                ?>
+              <ul class="cd-accordion cd-accordion--animated margin-top-lg margin-bottom-lg">
+                <li class="cd-accordion__item cd-accordion__item--has-children">
+                  <input class="cd-accordion__input" type="checkbox" name ="<?php echo 'group-'.$idtema;?>" id="<?php echo 'group-'.$idtema;?>">
+                  <label class="cd-accordion__label cd-accordion__label--icon-folder" for="<?php echo 'group-'.$idtema;?>"><span><?php echo utf8_encode($tema); ?></span></label>
+                  <!-- Aqui pondremos los contenidos  -->
+            
+                  <?php
+                  $contenidos="select distinct cu.codigocurso as curso,ma.sigla AS materia , te.idtema,te.titulo as tema,co.idcontenido,co.descripcion as contenido
+                  from pla_curso as cu
+                  INNER JOIN pla_materia as ma on cu.codigocurso=ma.codigocurso
+                  INNER JOIN pla_tema as te on ma.idmateria=te.idmateria
+                  INNER JOIN pla_contenido as co on te.idtema=co.idtema
+                  Where co.idtema=$idtema
+                  ORDER BY idtema,co.orden ASC ";       
+                    $rescontenidos=$con->query($contenidos); 
+                    
+                    while( $rowcontenido=mysqli_fetch_array($rescontenidos)){
+                    $contenido=$rowcontenido['contenido'];
+                    $idcontenido=$rowcontenido['idcontenido'];
+                  ?>
+                    <ul class="cd-accordion__sub cd-accordion__sub--l1">
+                      <li class="cd-accordion__item cd-accordion__item--has-children">
+                        <input class="cd-accordion__input" type="checkbox" name ="<?php echo 'sub-group-'.$idcontenido;?>" id="<?php echo 'sub-group-'.$idcontenido;?>" onclick='cargarcontenido("#contenido","php/contenido.php");'>
+                       e <label class="cd-accordion__label cd-accordion__label--icon-folder" for="<?php echo 'sub-group-'.$idcontenido;?>"><span><?php echo utf8_encode($contenido);?></span></labl>
+                     </li>
+                    </ul>
+                  <?php 
+                    
+                    };
+                    mysqli_free_result($rescontenidos);
+                    $contenidos=""; ?>
+                
+                </li>
               </ul>
+              <?php }?>
+ 
+
+            </div>
+
+            <div class="col l9 white" style="height:30em">
+              <div class="col l12" name="contenido" id="contenido">
+
+                <h6>Desarrollo Web/Lección 3: Crear una aplicación Node.js</h6>
+                <h4>Lección 3: Crear una aplicación Node.js</h4>
+                <h6>Integrando el front y back-end</h6>
+              </div>
+              <div class="col offset-s1 l11">
+                <iframe width="460" height="255" src="https://www.youtube.com/watch?v=I75CUdSJifw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="col l12">
+                <a href="download/acme-doc-2.0.1.txt" download="Acme Documentation (ver. 2.0.1).txt">Download Text</a>
+                <a href="download/acme-doc-2.0.1.txt" download="Acme Documentation (ver. 2.0.1).txt">Download PDF</a>
+              </div>
+            </div>
           </div>
-      </div>
-
-      <div class="col l9">
-        <div class="col l12">
-          <h6>Desarrollo Web/Lección 3: Crear una aplicación Node.js</h6>
-          <h4>Lección 3: Crear una aplicación Node.js</h4>
-          <h6>Integrando el front y back-end</h6>
         </div>
-        <div class="col offset-s1 l10">
-          <iframe width="460" height="255" src="https://www.youtube.com/watch?v=I75CUdSJifw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <div class="col l12">
-          <a href="download/acme-doc-2.0.1.txt" download="Acme Documentation (ver. 2.0.1).txt">Download Text</a>
-          <br>
-          <a href="download/acme-doc-2.0.1.txt" download="Acme Documentation (ver. 2.0.1).txt">Download PDF</a>
-        </div>
-
-      </div>
-
-
-      </div>
-    </div>
+      
   </body>
   <script src="js/util.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
   <div class="demo-avd demo-avd-cf demo-avd--light js-demo-avd" style="bottom: 30px; left: 30px; top: auto;"></div>
 <!--  <script src="js/demo-avd.js"></script>   -->
   <script>
