@@ -66,5 +66,6 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/class_room/php/conexion.php");
 			<?php	}}?>
 						</td>
 						</tr>
+	</table>
 </body>
 </html>
