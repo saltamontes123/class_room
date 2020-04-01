@@ -1,7 +1,18 @@
 <?php 
+error_reporting(0);
+session_start();
+$usuario=$_SESSION['usuario'];
+$idmateria=$_SESSION['idmateria'];
+
+if($usuario==null||$usuario==''){
+  header("Location:index.php");
+  die();
+}
+
+
 require_once ($_SERVER['DOCUMENT_ROOT']."/class_room/php/conexion.php");
-$usuario='1141962';
-$materia=1;
+//$usuario='1141962';
+//$materia=1;
 $detallecontenido=1;
 
 
@@ -9,6 +20,8 @@ $temas="select distinct cu.codigocurso as curso,ma.sigla AS materia , te.idtema,
 from pla_curso as cu
 INNER JOIN pla_materia as ma on cu.codigocurso=ma.codigocurso
 INNER JOIN pla_tema as te on ma.idmateria=te.idmateria
+INNER JOIN pla_usuariomateria as um on um.idmateria=ma.idmateria and um.numero_identidad='$usuario'
+WHERE ma.idmateria=$idmateria
 ORDER BY idtema ASC ";
 
 $restemas=$con->query($temas);
@@ -73,7 +86,7 @@ $restemas=$con->query($temas);
           <ul>
             <li><a class="texto" href="#mision">Mis cursos</a></li>
             <li><a class="texto" href="#cursos">Avances</a></li>
-            <li><a class="boton" href="#contactos">Cerrar sesión</a></li>
+            <li><a class="boton" href="cerrarsession.php">Cerrar sesión</a></li>
           </ul>
         </div>
       </div>

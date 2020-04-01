@@ -55,8 +55,8 @@ while ($row = mysqli_fetch_array($res)){
     $descripcion=utf8_encode($row['descripcion']);
     $tipocontenido=$row['tipocontenido'];
     $iddetallecontenido=$row['iddetallecontenido'];
-    $textoconformato=$row['textoconformato'];
-    if($tipocontenido=='Video'){
+	$textoconformato=$row['textoconformato'];
+	if($tipocontenido=='Video'){
         //echo $tipocontenido;?>
         <iframe name=<?php echo $iddetallecontenido;?>  width="560" height="315" src="<?php echo $url;?>" allowfullscreen></iframe><br>
 <?php    }
@@ -71,12 +71,9 @@ while ($row = mysqli_fetch_array($res)){
 <?php    } 
     elseif(stristr($tipocontenido, 'documento')) 
     {
-        
  ?>     
- 
- 
- <!-- <iframe src="../ajax/listar_descargas.php" frameborder="0" width=100%></iframe> -->
- <table class="table table-striped table-hover">
+  <!-- <iframe src="../ajax/listar_descargas.php" frameborder="0" width=100%></iframe> -->
+ 	<table class="table table-striped table-hover">
 		<tbody>	
 		<!-- documentos  -->
 		<td >
@@ -127,7 +124,12 @@ while ($row = mysqli_fetch_array($res)){
  
  
  <?php
-    } 
+	} 
+	elseif(utf8_encode($tipocontenido)=="Presentación MS-PowerPoint"){
+		
+		echo $url;
+	}
+//	echo utf8_encode($tipocontenido);
    // echo $tipocontenido;
 } ?><br></h1>
 </body>

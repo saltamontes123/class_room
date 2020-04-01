@@ -1,6 +1,53 @@
+@import "compass/css3";
+
+@font-face {
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/Anders.ttf');
+  font-family: test;
+}
+html,body {
+  font-size: 62.5%;
+}
+.scene {
+  position: relative;
+  height: 100%;
+  text-align: center;
+}
+h1 {
+  position: relative;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: test;
+  color: #fff;
+  z-index: 10;
+}
+.magic {
+  z-index: 5;
+  position: absolute;
+  top: calc(50%);
+  left: calc(50%);
+  width: 20rem;
+  height: 20rem;
+  background: url('../img/back0003.svg') 10% 10% no-repeat fixed;
+  background-size: cover;
+  border-radius: 50%;
+}
+.check-out {
+  z-index: 100;
+  position: absolute;
+  bottom: 1rem;
+  left: 30%;
+  transform: translateX(-10%);
+  font-size: 2rem;
+  color: #fff;
+  font-family: test;
+
+  a {
+    color: rgba(255,170,170,2);
+  }
+}
+
 .contenedor{
-  display: block;
-  height: 41em;
+  height: 65em;
   z-index: -1;
 }
 .contenedor1{
@@ -11,8 +58,7 @@
 }
 /*cierra menu */
 .flotante{
-  display:block;
-  position: absolute;
+  position:absolute;
   right: 0px;
   top: 90px;
   border-radius: 10px;
@@ -58,13 +104,14 @@ a{
   color: #81F7DC;
 }
 .texto1{
-  color: #DE00FF;  //yellow
+  color: #DE00FF;
 }
 .texto1:hover{
   color: #81F7DC;
 }
 .texto2{
   color: #fff;
+  font-size: 14px;
 }
 .texto2:hover{
   opacity: 1;
@@ -145,7 +192,7 @@ a{
       z-index: 2;
       overflow: auto;
       width: 25%;
-      height: 32em;
+      height: 44em;
       background-color: white;
       margin: 2em 2em 0em 0em;
       border: 1px solid #013F72;
@@ -158,8 +205,14 @@ a{
     width: 50%;
     line-height: normal;
   }
+.inscripcion label
+    {
+    color: #351a92;
+    line-height: 15px;
+    font-size: 15px;
+  }
 .titulos{
-    color: #013F72;
+    color: #351A92;
   }
 .titulos h1{
      margin: 150px 15px 15px 55px;
@@ -176,12 +229,15 @@ a{
 }
 .titulos h6{
     margin: 15px 15px 15px 15px;
-    line-height: 8px;
-    
+    line-height: 13px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .titulos p{
     padding:20px 20px 20px 20px;
     margin: 15px 15px 15px 15px;
+    line-height: 20px;
+    font-size: 13px;
 }
 .titulos input::placeholder{
    font-size: 13px;
@@ -189,7 +245,7 @@ a{
 }
 .titulos select, .titulos ol{
    color: #013F72;
-   font-size: 10px;
+   font-size: 13px;
    font-style: normal;
 }
 input[type="text"], input[type="email"], select{
@@ -225,11 +281,16 @@ ol, select{
     font-weight: bold;
 }
 .ideas{
-    padding: 50px 50px 50px 50px;
+  padding: 50px 50px 50px 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
 .img_ideas{
-    width: 170px;
-    height: 170px;
+    width: 20%;
+    height: 20%;
   }
 select:focus{ outline: none;}
 
@@ -237,6 +298,16 @@ option:hover{
     color:#E74C3C;
     background-color: #81f7dc;
 }
+
+/* aliados */
+.aliados{
+  border-radius:14px;
+  font-size: 62.5%;
+  overflow: hidden;
+  }
+
+
+
 
 @media screen and (max-width:900px) {
       header {

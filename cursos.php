@@ -1,16 +1,26 @@
 <?php 
+error_reporting(0);
+session_start();
+$usuario=$_SESSION['usuario'];
+if($usuario==null||$usuario==''){
+  header("Location:index.php");
+  die();
+};
+
+
 require_once ($_SERVER['DOCUMENT_ROOT']."/class_room/php/conexion.php");
-$usuario='1141962';
-$materia=1;
+//$usuario='1141962';
+//$materia=1;
 $detallecontenido=1;
-$sqlcursos="SELECT curso,m.materia, nombre, apellido
+$sqlcursos="SELECT curso,m.materia, nombre, apellido,m.idmateria
 FROM pla_materia as m
 INNER JOIN pla_curso as cu on m.codigocurso=cu.codigocurso 
 INNER JOIN pla_usuariomateria as um on um.codigocurso=cu.codigocurso
 INNER JOIN pla_usuariotipousuariocurso as utuc on um.codigocurso=utuc.codigocurso
 INNER JOIN pla_usuario as u on u.numero_identidad=um.numero_identidad
 LEFT JOIN pla_avance as av on av.numero_identidad=u.numero_identidad
-WHERE u.numero_identidad='$usuario'";
+WHERE u.numero_identidad=$usuario";
+
 
 $res=$con->query($sqlcursos);
 
@@ -42,7 +52,7 @@ $res=$con->query($sqlcursos);
           <ul>
             <li><a class="texto" href="#mision">Mi perfil</a></li>
             <li><a class="texto" href="#cursos">Avances</a></li>
-            <li><a class="boton" href="#contactos">Cerrar sesión</a></li>
+            <li><a class="boton" href="cerrarsession.php">Cerrar sesión</a></li>
           </ul>
         </div>
       </div>
@@ -50,6 +60,7 @@ $res=$con->query($sqlcursos);
       <?php 
       while ($row = mysqli_fetch_array($res)){
         $Materia=utf8_encode($row['materia']);
+        $idmateria=$row['idmateria'];
         ?>
       <div class="row">
         <div class="col l3 offset-l2 center avance">
@@ -60,7 +71,7 @@ $res=$con->query($sqlcursos);
                 <div class="determinate" style="width: 20%"></div>
             </div>
             <br>
-            <input type="button" name="" class="boton" value="Iniciar">
+            <input type="button" name="<?php echo 'm-'.$idmateria;?>" class="boton" value="Iniciar" onclick="<?php $_SESSION['idmateria']=$idmateria;?>;location.href='class.php'">
             <br>
             <br>
         </div>
