@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="main.css">
+   </head>
+   <body>
+      <div class="m-content">
+         <h1>getUserMedia + CSS filters demo</h1>
+
+         <div class="photo-booth">
+            <!-- local video stream will be rendered to the video tag -->
+            <video autoplay></video>
+            <!-- a copy of the stream will be made and css filters applied  -->
+            <canvas></canvas>
+         </div>
+         <div class="buttons">
+            <!-- call getUserMedia() to access webcam and give permission -->
+            <button id="start">Access Webcam</button>
+            <!-- take a snapshot from your webcam and render it to the canvas tag -->
+            <button id="snapshot">Take a Snapshot</button>
+            <!-- sort through the available css filters -->
+            <button id="filter">Change Filter</button>
+         </div>
+      </div>
+
+      <script src="main.js"></script>
+   </body>
+</html>
